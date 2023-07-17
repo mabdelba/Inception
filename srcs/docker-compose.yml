@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  mariadb:
+    build: ./requirements/mariadb
+    container_name: mariadb-container
+    ports:
+      - 3306:3306
+    env_file:
+      - ./.env
+
+  # nginx:
+  #   build: ./requirements/nginx
+  #   container_name: nginx-container
+  #   ports:
+  #     - 443:443
+  #   env_file:
+  #     - ./.env
+
+  wordpress:
+    build: ./requirements/wordpress
+    container_name: wordpress-container
+    env_file:
+      - ./.env
+    depends_on:
+      - mariadb
