@@ -20,6 +20,8 @@ services:
   wordpress:
     build: ./requirements/wordpress
     container_name: wordpress-container
+    ports:
+      - 9000:9000
     env_file:
       - ./.env
     depends_on:
