@@ -40,4 +40,14 @@ services:
 
 volumes:
   mariadb-volume:
+    driver: local
+    driver_opts:
+      type: volume
+      device: /home/mabdelba/data/db
+      o: bind
   wordpress-volume:
+    driver: local
+    driver_opts:
+      type: volume
+      device: /home/mabdelba/data/wordpress
+      o: bind
