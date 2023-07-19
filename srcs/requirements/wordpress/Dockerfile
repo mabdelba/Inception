@@ -13,6 +13,8 @@ RUN apt install -y php mariadb-client php7.4-fpm php-mysqli
 RUN mkdir /run/php
 
 COPY ./conf/script.sh /conf/script.sh
+RUN chmod +x wp-cli.phar
 
+RUN mv wp-cli.phar /usr/local/bin/wp
 CMD [ "bash", "/conf/script.sh"]
 
