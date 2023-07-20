@@ -9,7 +9,7 @@ if [ ! -f /var/www/html/wp-config.php ]; then
 ###
 wp core download --allow-root
 
-wp core config --dbhost=mariadb  --dbname=wordpress --dbuser=mabdelba --dbpass=0000 --allow-root
+wp core config --dbhost=$DB_HOST  --dbname=$MYSQL_DB --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD --allow-root
 
 wp core install --url=$DOMAIN_NAME --title=inception --admin_user=$WP_ADMIN --admin_password=$WP_ADMIN_PW --admin_email=$WP_ADMIN_EMAIL --allow-root
 
