@@ -16,9 +16,9 @@ wp core install --url=$DOMAIN_NAME --title=inception --admin_user=$WP_ADMIN --ad
 wp user create $WP_USER $WP_EMAIL --user_pass=$WP_PW --role=subscriber --allow-root
 fi
 ###
-sed -i "s/listen = \/run\/php\/php7.4-fpm.sock/listen = 9000/g" /etc/php/7.4/fpm/pool.d/www.conf
+sed -i "s/listen = \/run\/php\/php7.3-fpm.sock/listen = 9000/g" /etc/php/7.3/fpm/pool.d/www.conf
 echo "php fpm running ..."
-php-fpm7.4 -F
+php-fpm7.3 -F
 
 # sleep 10000
 

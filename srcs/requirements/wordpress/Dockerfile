@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:buster
 
 WORKDIR /var/www/html
 
@@ -8,7 +8,7 @@ RUN apt update && apt install -y curl
 
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
-RUN apt install -y php mariadb-client php7.4-fpm php-mysqli
+RUN apt install -y php mariadb-client php7.3-fpm php-mysqli
 
 RUN mkdir /run/php
 
