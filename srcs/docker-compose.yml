@@ -4,17 +4,21 @@ services:
   mariadb:
     build: ./requirements/mariadb
     container_name: mariadb-container
+    image: mariadb
     ports:
       - 3306:3306
     env_file:
       - ./.env
     volumes:
       - mariadb-volume:/var/lib/mysql
+    networks:
+      - default-network
     
 
   nginx:
     build: ./requirements/nginx
     container_name: nginx-container
+    image: nginx
     ports:
       - 443:443
     env_file:
@@ -23,10 +27,13 @@ services:
       - wordpress
     volumes:
       - wordpress-volume:/var/www/html
+    networks:
+      - default-network
 
   wordpress:
     build: ./requirements/wordpress
     container_name: wordpress-container
+    image: wordpress
     ports:
       - 9000:9000
     env_file:
@@ -35,6 +42,8 @@ services:
       - mariadb
     volumes:
       - wordpress-volume:/var/www/html
+    networks:
+      - default-network
     
 
 
@@ -51,3 +60,6 @@ volumes:
       type: volume
       device: /home/mabdelba/data/wordpress
       o: bind
+
+networks:
+  default-network:
